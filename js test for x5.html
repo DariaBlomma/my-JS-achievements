@@ -2,13 +2,13 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<link href="style1.css" rel="stylesheet">
-<title>Сумма опредленных значений в массиве объектов</title>
+<title>Vассив объектов. Cортирока по убыванию</title>
 </head>
 	<body>
 		<script>
 		"use strict";
-			
+			let sortByScore = (a,b) => a.score < b.score ? 1 : -1;
+
 			const students = [
 				{
 				firstName: 'John',
@@ -29,21 +29,13 @@
 				lastName: 'Loginova',
 				email: 'lena@x5.ru',
 				group: 'B',
-				score: '55',
+				score: '45',
 				}
 			];
 			
-			let sum = 0;
-			students.forEach (student => {
-				if (`${student.group}` == 'A'){
-					let group = `${student.group}`;
-					
-					let scoreA = parseInt(`${student.score}`);			
-					sum += scoreA; 
-				};
-			});
-			console.log(sum);
-			document.write(sum);
+			students.sort(sortByScore);
+			console.log(students);
+			
 		</script>
 
 
