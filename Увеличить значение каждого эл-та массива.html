@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Массив. Добавить 10 к каждому элементу</title>
+</head>
+	<body>
+		<script>
+		"use strict";
+			let arr = [1, 5, 10, 7];
+			let resultArr1 = arr.map(item => item + 10);
+			//console.log(resultArr1);
+			
+			let resultArr2 = [];
+			arr.forEach(item => {
+			resultArr2.push(item + 10);
+			});
+			//console.log(resultArr2);
+			
+			let resultArr3 = [];
+			for (let i = 0; i < arr.length; i++) {
+				resultArr3.push(arr[i] + 10);
+			}
+			//console.log(resultArr3);
+			
+			//let resultArr5 = arr.map(arr + 10); //1,5,10,710 is not a function at Array.map (<anonymous>)
+			//console.log (resultArr5);
+			
+			let resultArr6 = arr.map(item => {
+				return item + 10;
+			});
+			console.log(resultArr6);
+		</script>
+
+
+	</body>
+</html>
