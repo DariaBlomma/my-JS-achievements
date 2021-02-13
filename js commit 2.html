@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Vассив объектов. Cортирока по убыванию</title>
+</head>
+	<body>
+		<script>
+		"use strict";
+			let sortByScore = (a,b) => a.score < b.score ? 1 : -1;
+
+			const students = [
+				{
+				firstName: 'John',
+				lastName: 'Doe',
+				email: 'john.doe@x5.ru',
+				group: 'A',
+				score: '24',
+				},
+				{
+				firstName: 'Dan',
+				lastName: 'Abramov',
+				email: 'dan@x5.ru',
+				group: 'A',
+				score: '32',
+				},
+				{
+				firstName: 'Lena',
+				lastName: 'Loginova',
+				email: 'lena@x5.ru',
+				group: 'B',
+				score: '45',
+				}
+			];
+			
+			students.sort(sortByScore);
+			console.log(students);
+			
+		</script>
+
+
+	</body>
+</html>
