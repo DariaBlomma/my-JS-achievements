@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Объединение ячеек в таблице</title>
+</head>
+	<body>
+		<table style="border: 1px solid black"> <!-- 11 td's -->
+			<tr>
+				<td colspan="2">First Name Last Name</td>
+				<td>Something</td>
+				<td>Something 2</td>
+			</tr>
+			<tr>
+				<td colspan="2">Ivan Ivan</td>
+				<td rowspan="3">Something 3</td>
+				<td>Something 3</td>
+			</tr>
+			<tr>
+				<td>Molodkin</td>
+				<td>Eugene</td>
+				<td rowspan="2">Leader developer</td>
+			</tr>
+			<tr>
+				<td>Topchiy</td>
+				<td>Alex</td>
+			</tr>
+		</table>
+<style>
+	td {
+		border: 1px solid black;
+	}
+</style>
+
+	</body>
+</html>
