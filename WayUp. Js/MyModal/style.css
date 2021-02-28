@@ -1,0 +1,54 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    width: 100%;
+    text-align: center;
+}
+.flex-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: relative; /*What for? */
+}
+#btn-open {
+    width: 150px;
+    height: 40px;
+    background-color: tomato;
+    border-radius: 20px;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+#wrapper-modal {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+#wrapper-modal.active {
+    display: block;
+}
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: gray;
+    opacity: 0.5;
+}
+#modal-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); /*Why so? Why just top and left will not give the result? */
+    width: 300px;
+    height: 300px;
+    z-index: 2;
+    border: 1px solid black;
+    background-color: #ffffff;
+}

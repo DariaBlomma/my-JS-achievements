@@ -13,7 +13,7 @@ h1 {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: relative; /*What for? */
 }
 
 #btn-open {
@@ -51,7 +51,7 @@ h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%); /*Why so? Why just top and left will not give the result? */
     width: 300px;
     height: 300px;
     z-index: 2;
