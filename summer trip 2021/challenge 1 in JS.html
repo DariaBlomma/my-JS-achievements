@@ -1,0 +1,103 @@
+<?php
+session_start ();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title>Summer trip. Ancient Greece. Challenge 1 </title>
+</head>
+	<body>
+		<header>
+
+		</header>
+	<main>
+		
+		<section>
+<p><h3>Start a challenge</h3></p>
+					<!--<form action="challenge 1.php" method="get" autocomplete="off"> -->
+					<ol>
+<!-- here is the hidden image with sailors -->
+</div>				
+					<!-- number 1-->
+					<li>I (to be born) on Ithaca</li>
+					<input type="text" id="one" placeholder="your anwer" maxlength="20" size="20">
+					<button id='btn1' type="button">Send</button>
+
+	<p class="right">
+	</p>
+	<p class="wrong">
+
+	</p>
+			<!--	<li>I met my wife, Penelope, when I (to take part) in competitions</li>
+				<input type="text" name="two" placeholder="your anwer" maxlength="20" size="20">
+				<input type="submit" value="Send">
+<p  class="right">
+<?php
+$two = $_GET['two'];
+if (empty($two)) {
+	$_SESSION["two"] = NULL;
+} else {
+if ($two == "was taking part") {
+	$_SESSION["two"] = "true";
+	$_SESSION["true"] += 1;
+	echo "Congratulations! Nobody is killed.</br>";
+} else {
+?>
+	</p>
+	<p class="wrong">
+<?php
+	echo "Oh no! One sailor is killed!</br>";
+	echo "Your answer " . $_GET['two'] . " is wrong. The right answer is was taking apart";
+}
+}
+?>
+	</p>
+				<li>My wife and I (to have) a son, Telemachus</li>
+				<input type="text" name="three" placeholder="your anwer" maxlength="20" size="20">
+				<input type="submit" value="Send">
+	<p  class="right">
+<?php
+$three = $_GET['three'];
+if (empty($three)) {
+	$_SESSION["three"] = NULL;
+} else {
+if ($three == "have") {
+	$_SESSION["three"] = "true";
+	$_SESSION["true"] += 1;
+	echo "Congratulations! Nobody is killed.</br>";
+} else {
+?>
+	</p>
+	<p class="wrong">
+<?php
+	echo "Oh no! One sailor is killed!</br>";
+	echo "Your answer " . $_GET['three'] . " is wrong. The right answer is have";
+}
+}
+?>
+
+<input type="submit" name="result" value="Result">
+	 think about the style 
+	<p class="php">
+	 why no number in result? 
+<?php
+if ($result = $_GET['result'] ?? '') {
+	echo $_SESSION["true"] . " sailors are alive";
+	$_SESSION = array();
+}
+?>-->
+	</p>
+				<!--</form>-->
+	<div class="goback">
+<p><a class="startpage" href="../../index.html">Go back to Start page</a></p>
+	</div>
+			</section>
+		</main>
+		<footer>
+
+		</footer>
+        <script src='index.js'></script>
+	</body>
+</html>
