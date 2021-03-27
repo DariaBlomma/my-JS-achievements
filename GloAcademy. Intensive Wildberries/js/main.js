@@ -51,20 +51,14 @@ const getGoods = checkGoods();
 
 
 const cart = {
-	cartGoods: [
-		// {
-		// 	id: "099",
-		// 	name: "Clocks Dior" ,
-		// 	price: 999,
-		// 	count: 2,
-		// },
-		// {
-		// 	id: "09",
-		// 	name: "Shoes Addr" ,
-		// 	price: 9,
-		// 	count: 3,
-		// }
-	],
+	cartGoods: JSON.parse(localStorage.getItem('cartWilb')) || [],
+
+	updateLocalStorage() {
+		localStorage.setItem('cartWilb', JSON.stringify(this.cartGoods));
+	},
+	getCountCartGoods() {
+		return this.cartGoods.length;
+	},
 	renderCart(){
 		cartTableGoods.textContent = "";
 		this.cartGoods.forEach(({ id, name, price, count}) => {
@@ -104,6 +98,7 @@ const cart = {
 		this.cartGoods = this.cartGoods.filter(item => id !== item.id);
 		this.renderCart();
 		this.showCartGoodsNumber();
+		this.updateLocalStorage();
 	},
 	minusGood(id){
 		for(const item of this.cartGoods) {
@@ -118,6 +113,7 @@ const cart = {
 		}
 		this.renderCart();
 		this.showCartGoodsNumber();
+		this.updateLocalStorage();
 	},
 	plusGood(id){
 		for(const item of this.cartGoods) {
@@ -128,6 +124,7 @@ const cart = {
 		}
 		this.renderCart();
 		this.showCartGoodsNumber();
+		this.updateLocalStorage();
 	},
 	addCartGoods(id){
 		const goodItem = this.cartGoods.find(item => item.id === id);
@@ -144,6 +141,7 @@ const cart = {
 						count: 1
 					})
 					this.showCartGoodsNumber();
+					this.updateLocalStorage();
 				});
 
 		}
@@ -163,6 +161,7 @@ const cart = {
 		this.cartGoods.length = 0;
 		this.showCartGoodsNumber();
 		this.renderCart();
+		this.updateLocalStorage();
 	}
 	
 	// const totalPrice = this.cartGoods.reduce((sum, item) => {
@@ -372,6 +371,86 @@ AllClothing.forEach(item => {
 			});
 	});
 });
+
+
+//work with server
+
+const modalForm = document.querySelector('.modal-form');
+
+const postData = dataUser => fetch('./server.php', {
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json'
+	  },
+	body: dataUser,
+});
+
+const validForm = (formData) => {
+	
+	let valid = false;
+
+	for (const [, value] of formData) {
+		if (value.trim())  {
+			valid = true;
+		} else {
+			valid = false;
+			break;
+		}
+	}
+
+	return valid;
+}
+
+modalForm.addEventListener('submit', event => {
+	event.preventDefault();
+
+	const formData = new FormData(modalForm);
+
+	if (validForm(formData) && cart.getCountCartGoods()) {
+
+	
+
+	const data = {};
+	for (const [name, value] of formData) {
+		data[name] = value;
+	}
+
+	data.cart = cart.cartGoods;
+
+	// console.log(data);
+	// console.log(JSON.stringify(data));	
+	
+	// formData.append('cart', JSON.stringify(cart.cartGoods));
+
+		postData(JSON.stringify(data))
+			.then(response => {
+				if (!response.ok) {
+					throw new Error(response.status);
+				}
+				alert('Order is sent. Youll be  contacted');
+				console.log(response.statusText);
+			})
+			.catch(err => {
+				alert('some error occured');
+				console.log(err);
+			})
+			.finally(() => {
+				closeModal();
+				modalForm.reset();
+				cart.cartGoods.length = 0;
+			});
+	} else {
+		if (!cart.getCountCartGoods()) {
+			alert('add goods to the cart');
+		}
+		if (!validForm(formData)) {
+			alert('fill in the information correctly');
+		}
+	}
+
+	
+});
+
 
 
 
