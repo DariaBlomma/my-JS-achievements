@@ -12,7 +12,7 @@ const mySwiper = new Swiper('.swiper-container', {
 //cart
 const buttonCart = document.querySelector('.button-cart');
 const modalCart = document.querySelector('#modal-cart');
-const modalClose = document.querySelector('.modal-close');
+// const modalClose = document.querySelector('.modal-close');
 //goods
 const viewAll = document.querySelectorAll('.view-all');
 const navigationLink = document.querySelectorAll('.navigation-link:not(.view-all');
@@ -220,14 +220,20 @@ const closeModal = () => {
 };
 
 buttonCart.addEventListener('click', openModal);
-modalClose.addEventListener('click', closeModal);
-// modalCart.addEventListener('click', closeModal);
+// delegation for closing the cart on click on overlay
+modalCart.addEventListener('click', event => {
+	const target = event.target;
+
+	if (target.classList.contains('overlay') || target.classList.contains('modal-close')) {
+		closeModal();
+	}
+});
 
 
 //scroll smooth
 {const scrollLinks = document.querySelectorAll('a.scroll-link');
 
- 
+
 	// for (let i = 0; i < scrollLinks.length; i++) {
 	// 	scrollLinks[i].addEventListener ('click', function(event) {
 	// 		event.preventDefault();
@@ -236,7 +242,7 @@ modalClose.addEventListener('click', closeModal);
 	// 			behavior: 'smooth',
 	// 			block: 'start',
 	// 		});
-	// 	})
+	// 	})weeee
 	// }
 	for (const scrollLink of scrollLinks) {
 		scrollLink.addEventListener ('click', event => {
@@ -268,8 +274,8 @@ const createCard = function ({ label, name, img, description, id, price }) {
 	card.innerHTML = `
 		<div class="goods-card">
 		${label ?
-			 `<span class="label">${label}</span>` :
-			  ""}
+			`<span class="label">${label}</span>` :
+			""}
 			
 			<img src="db/${img}" alt="${name}" class="goods-image">
 			<h3 class="goods-title">${name}</h3>
