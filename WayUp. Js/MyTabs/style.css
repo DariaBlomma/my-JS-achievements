@@ -10,9 +10,19 @@ h1 {
     justify-content: center; /* расположит по вертикальному центру общего блока */
     align-items: center; /* т.к направление стало по вертикали, то align-items выровняет по противоположной, горизонтальной оси, только прямые дочерние блоки  */
 }
-#tabs {
+
+.inner-wrapper {
+    flex-direction: row;
+}
+
+.tabs {
     display: flex; /* расположит по горизонтали три кнопки, на их содержимое не влияет */
 }
+
+.inner-tabs {
+    flex-direction: column;
+}
+
 .tab-btn {
     width: 100px;
     height: 40px;
@@ -22,19 +32,25 @@ h1 {
     display: flex; /* влияет на расположение текста внутри кнопок */
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 
 
 }
-#contents {
+.contents, .inner-contents {
     width: 300px;
     height: 200px;
     border: 1px solid rgb(70, 47, 4);
     border-radius: 5px;
 }
-.content {
+
+.inner-contents {
+    height: 126px;
+}
+
+.content, .inner-content {
     display: none;
 }
-.content.active {
+.content.active, .inner-content.active {
     display: block;
 }
 .tab-btn.active {

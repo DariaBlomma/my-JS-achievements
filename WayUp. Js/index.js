@@ -40,8 +40,8 @@ function nextSlide () {
         index = 0;
         prepareCurrentSlide(index);
     } else {
-         index++;
-         prepareCurrentSlide(index);
+        index++;
+        prepareCurrentSlide(index);
     }
 }
 
@@ -66,7 +66,7 @@ dots.forEach(function(item, indexDot) {
     })
 });
 
-let autoChange = setInterval(nextSlide, 3000);
+let autoChange = setInterval(nextSlide, 2000);
 
 for (slide of slides) {
     slide.addEventListener ('mouseover', () => {
@@ -82,3 +82,4 @@ for (slide of slides) {
     2. Внутри третьей вкладки добавить функционал табов. Количество вкладок: 2. Контент внутри - на ваш вкус 
 
 */
+
