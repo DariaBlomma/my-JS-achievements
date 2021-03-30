@@ -31,8 +31,8 @@ function nextSlide () {
         index = 0;
         prepareCurrentSlide(index);
     } else {
-         index++;
-         prepareCurrentSlide(index);
+        index++;
+        prepareCurrentSlide(index);
     }
 }
 
