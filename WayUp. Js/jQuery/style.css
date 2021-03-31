@@ -1,0 +1,23 @@
+.divHidden {
+    display: none;
+}
+
+
+
+.divHidden.visible {
+    display: block;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.border {
+    border: 5px solid yellow
+}
+
+.div {
+    background-color: aqua;
+    width: 100px;
+    height: 300px;
+}
