@@ -6,6 +6,7 @@ $(document).ready(function() {
 
 
     let dataAttribute =  $('#h2').data('number');
+    console.log('dataAttribute: ', dataAttribute); //js quick console try
     console.log(dataAttribute);
 
     $('input[name="message"]').css({'border': '5px solid blue'})

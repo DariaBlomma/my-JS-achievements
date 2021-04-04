@@ -64,3 +64,10 @@ for (slide of slides) {
         clearInterval(autoChange);
     })
 }
+
+// const autoSlider = () => {
+//     nextSlide(),
+//     setTimeout(autoSlider, 2000);
+// }
+
+// autoSlider();
